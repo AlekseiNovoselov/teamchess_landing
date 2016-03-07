@@ -54,14 +54,17 @@
 		/* Defining each section background and styles
         * --------------------------------------- */
 		#section0{
-			/*background-image: url(imgs/a_chess_background.jpg);*/
-			padding: 6% 0 0 0;
 		}
 		#section0 h2 {
 			color: #000000;
 		}
 		#section0 p {
 			color: #000000;
+		}
+
+		#section1 {
+			/*background-image: url(imgs/a_chess_background.jpg);*/
+			/*padding: 6% 0 0 0;*/
 		}
 
 		#section2{
@@ -75,11 +78,48 @@
 		#section3 h1{
 			color: #ffffff;
 		}
+		#section6 h2 {
+			color: #000000;
+		}
+		#section6 p {
+			color: #000000;
+		}
+
+
 
 		#section4 {
 			background-image: url(imgs/a_chess_background.jpg);
 			padding: 6% 0 0 0;
 		}
+
+
+		/*Adding background for the slides
+* --------------------------------------- */
+		#slide1{
+			background-image: url(imgs/handshake.jpg);
+		}
+		#slide2{
+			background-image: url(imgs/clock_black.jpg);
+		}
+		#slide3{
+			background-image: url(imgs/emotional.jpg);
+		}
+		#slide4{
+			background-image: url(imgs/shest.jpg);
+		}
+		#slide5{
+			background-image: url(imgs/captured.jpg);
+		}
+		#slide6{
+			background-image: url(imgs/rules.jpeg);
+		}
+		#slide7{
+			background-image: url(imgs/chess_win.jpg);
+		}
+		#slide8{
+			background-image: url(imgs/a_chess_background.jpg);
+		}
+
 
 		/* Bottom menu
         * --------------------------------------- */
@@ -91,37 +131,33 @@
 			color: #ffffff;
 		}
 
-		#gif {
+		.gif {
 			position: center;
 			right: 0;
 			bottom: 0;
 			top:0;
 			right:0;
-			height: 70%;
+			height: 85%;
 			background-size: 80% 80%;
-			background-color: black; /* in case the video doesn't fit the whole page*/
-			background-image: /* our video */;
 			background-position: center center;
 			background-size: contain;
 			object-fit: cover; /*cover video background */
 			z-index:3;
 		}
 
-		#myVideo{
-			position: center;
-			right: 0;
-			bottom: 0;
-			top:0;
-			right:0;
-			height: 70%;
-			background-size: 80% 80%;
-			background-color: black; /* in case the video doesn't fit the whole page*/
-			background-image: /* our video */;
-			background-position: center center;
-			background-size: contain;
-			object-fit: cover; /*cover video background */
-			z-index:3;
-		}
+        #gif1 {
+            position: center;
+            right: 0;
+            bottom: 0;
+            top:0;
+            right:0;
+            height: 85%;
+            background-size: 80% 80%;
+            background-position: center center;
+            background-size: contain;
+            object-fit: cover; /*cover video background */
+            z-index:3;
+        }
 
 	</style>
 
@@ -141,17 +177,9 @@
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
 				sectionsColor: ['#1bbc9b', '#2B565B', '#7BAABE', 'whitesmoke', '#ccddff'],
-				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage','5thPage' , 'lastPage'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage','5thPage' , '6thPage'],
 				scrollingSpeed: 1000,
 				menu: '#menu',
-
-				//Custom selectors
-				sectionSelector: '.section',
-				slideSelector: '.slide',
-				afterRender: function(){
-					//playing the video
-					$('video').get(0).play();
-				}
 			});
 		});
 	</script>
@@ -163,9 +191,8 @@
 	<li data-menuanchor="firstPage"><a href="#firstPage">Главная</a></li>
 	<li data-menuanchor="secondPage"><a href="#secondPage">О проекте</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage">Правила</a></li>
-	<li data-menuanchor="4thpage"><a href="#4thpage">Как играть</a></li>
+	<li data-menuanchor="4thpage"><a href="#4thpage">Игровой процесс</a></li>
 	<li data-menuanchor="5thPage"><a href="#5thPage">Скачать</a></li>
-
 </ul>
 
 <div id="fullpage">
@@ -175,23 +202,20 @@
 		<p>Первое мобильное Приложение для игры в шведские шахматы online</p>
 	</div>
 	<div class="section" id="section1">
-		<div class="slide">
+		<div class="slide" id="slide1">
 			<div class="intro">
-				<img src="imgs/1.png" alt="simple" />
 				<h1>Командные</h1>
 				<p>Играйте с друзьями в одной команде и побеждайте вместе!</p>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" id="slide2">
 			<div class="intro">
-				<img src="imgs/2.png" alt="Cool" />
 				<h1>Быстрые</h1>
 				<p>Режим сумасшедшего блица</p>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" id="slide3">
 			<div class="intro">
-				<img src="imgs/3.png" alt="Compatible" />
 				<h1>Эмоциональные</h1>
 				<p>Напряжение на протяжении всей партии</p>
 			</div>
@@ -199,71 +223,111 @@
 	</div>
 
 	<div class="section " id="section5">
-		<div class="slide">
+		<div class="slide" id="slide4">
 			<div class="intro">
 				<img src="imgs/lobby_board.png" alt="simple" />
 				<img src="imgs/lobby_board.png" alt="simple" />
 				<h1>Как это работает?</h1>
-				<p>1 партия, 2 доски, 4 игрока, 2 команды;</p>
-				<p>В каждой команде один участник играет белыми, другой - чёрными фигурами;</p>
-				<p>Игра идёт с контролем времени;</p>
-				<p>Партнёры имеют возможность видеть позиции и время на обеих досках.</p>
+				<p>1) 1 партия, 2 доски, 4 игрока, 2 команды;</p>
+				<p>2) В каждой команде один участник играет белыми, другой - чёрными фигурами;</p>
+				<p>3) Игра идёт с контролем времени;</p>
+				<p>4) Партнёры имеют возможность видеть позиции и время на обеих досках.</p>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" id="slide5">
 			<div class="intro">
-				<!--<img src="imgs/lobby_board.png" alt="simple" />-->
-				<!--<img src="imgs/lobby_board.png" alt="simple" />-->
 				<h1>Главный принцип</h1>
-				<p>Сбитую фигуру соперника игрок передает своему партнеру в резерв</p>
-				<p>Фигура из резерва может быть выставлена на доску вместо обычного хода</p>
+				<p>1) Сбитую фигуру соперника игрок передает своему партнеру в резерв;</p>
+				<p>2) Фигура из резерва может быть выставлена на доску вместо обычного хода.</p>
 				<h1>Условие победы</h1>
-				<p>Проигрыает команда, игроку которой поставили мат, либо игрок которой первым просрочил время</p>
+				<p>Проигывает команда, игроку которой поставили мат, либо игрок, который первым просрочил время.</p>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" id="slide6">
 			<div class="intro">
 				<h1>Используемые правила</h1>
-				<p>1) Выставленной фигурой можно объявлять и <em>шах</em>, и <em>мат</em>.</p>
-				<p>2) Пешку можно выставлять на любую горизонталь, кроме первой и последней.</p>
+				<p>1) Выставленной фигурой можно объявлять и <em>шах</em>, и <em>мат</em>;</p>
+				<p>2) Пешку можно выставлять на любую горизонталь, кроме первой и последней;</p>
 				<p>3) При превращении пешка объявляется желаемой фигурой.</p>
 			</div>
 		</div>
+		<div class="slide" id="slide7">
+			<div class="intro">
+				<h1>Условие мата</h1>
+				<p> Если король находится под шахом и его невозможно ни увести,
+					ни прикрыть фигурой с доски, однако при этом он в принципе может быть прикрыт
+					выставлением фигуры из резерва (даже если в данный момент у игрока такой фигуры нет),
+					такая позиция считается не <em>матом</em>, а <em>шахом</em>. В этом случае проигрыш не фиксируется.
+					Игрок может зависнуть до получения нужной фигуры, выигрыша одной из сторон
+					на другой доске или истечения времени. Матом признаётся только позиция,
+					где король не может быть прикрыт от шаха никаким допустимым правилами способом
+					(то есть когда шах дан конём, либо дающая шах фигура стоит вплотную к королю,
+					либо шах дан одновременно двумя фигурами, от которых невозможно закрыть короля одним ходом).</p>
+			</div>
+		</div>
+		<div class="slide" id="slide8">
+			<div class="intro">
+				<h1>Отличие от обычных шахмат</h1>
+				<p>1) Пешка, выставленная на поле второй горизонтали, имеет те же возможности хода,
+					что и пешка, изначально стоящая на своей исходной позиции: она может первым ходом пойти на два поля;
+					при таком ходе она может быть взята на проходе ответным ходом противника;</p>
+				<p>2) Ладья, выставленная на крайнее поле первой горизонтали, может участвовать в рокировке,
+					как никогда не ходившая.</p>
+			</div>
+		</div>
+
 
 
 	</div>
 
 	<div class="section" id="section2">
 		<div class="slide">
-				<img src="imgs/start_game.gif" alt="simple" id="gif" />
-				<!--<img src="imgs/start_game.gif" alt="simple" width="300" height="500" />-->
-				<!--<img src="imgs/start_game.gif" alt="simple" width="300" height="500" />-->
-				<!--<img src="imgs/start_game.gif" alt="simple" width="300" height="500" />-->
+            <p>1. Начало игры online</p>
+            <img src="imgs/start_gif.gif" alt="simple" id="gif1" />
 		</div>
 
 		<div class="slide">
-				<video autoplay loop muted id="myVideo">
-					<source src="imgs/figure_pass.mp4" type="video/mp4">
-					<source src="imgs/flowers.webm" type="video/webm">
-				</video>
-		</div>
-	</div>
+            <p>2. Наблюдай за соседней доской</p>
+            <img src="imgs/swipe_short.gif" alt="simple" class="gif"/>
+        </div>
+
+        <div class="slide">
+            <p>3. Возможные ходы подсвечиваются</p>
+            <img src="imgs/possible.gif" alt="simple" class="gif"/>
+        </div>
+
+        <div class="slide">
+            <p>4. Сбитая фигура передается в резерв напарнику</p>
+            <img src="imgs/captured_fast.gif" alt="simple" class="gif"/>
+        </div>
+
+        <div class="slide">
+            <p>5. Фигура из резерва может быть выставлена на доску</p>
+            <img src="imgs/pool.gif" alt="simple" class="gif"/>
+        </div>
+
+
+    </div>
 
 	<div class="section " id="section0">
 		<div class="intro">
+			<p>Установить приложение</p>
 			<a class="store" href="https://play.google.com/store/apps/details?id=ru.mail.park.bughouse">
-				<img alt="Android app on Google Play" width="172" height="50" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png">
+				<img alt="Android app on Google Play" width="172" height="50" src="https://play.google.com/intl/ru_ru/badges/images/generic/ru-play-badge.png">
 			</a>
 			<a class="store" href="https://play.google.com/store/apps/details?id=ru.mail.park.bughouse">
-				<img alt="Download on the Apple App Store" width="172" height="50" src="https://devimages.apple.com.edgekey.net/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg">
+				<img alt="Download on the Apple App Store" width="172" height="50" src="https://yastatic.net/promo-pogoda/_/CnMDSoWZH5Joi_6QDKQAr7et3EM.svg">
 			</a>
-			<h2>Работа на планшетах</h2>
-			<p>
-				Адаптирован под различные размеры экранов, а также для планшетов и мобильных устройств.
-				<br /><br /><br /><br />
-			</p>
+			<br><br><br>
+			<p>Вы всегда можете связаться с нами</p>
+			<h2>swedish.chess@gmail.com</h2>
+			<br><br>
+			<p>Группа ВКонтакте</p>
+			<a class="store" href="https://vk.com/teamchess">
+				<img alt="vk image" width="100" height="100" src="imgs/vk_icon.png">
+			</a>
+
 		</div>
-		<img src="imgs/tablets.png" alt="tablets" />
 	</div>
 </div>
 
