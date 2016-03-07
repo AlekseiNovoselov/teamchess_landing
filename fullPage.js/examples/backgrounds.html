@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Background images - fullPage.js</title>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="fullPage full-screen backgrounds." />
+	<meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,backgrounds,full-screen" />
+	<meta name="Resource-type" content="Document" />
+
+
+	<link rel="stylesheet" type="text/css" href="../jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="examples.css" />
+	<style>
+
+		/* Style for our header texts
+        * --------------------------------------- */
+		h1{
+			opacity: 1.0;
+			font-size: 5em;
+			font-family: "Times New Roman",helvetica;
+			color: #fff;
+			margin:0;
+			padding:0;
+		}
+
+		h2{
+			opacity: 1.0;
+			font-size: 4em;
+			font-family: "Times New Roman",helvetica;
+			color: #fff;
+			margin:0;
+			padding:0;
+		}
+
+		/* Centered texts in each section
+        * --------------------------------------- */
+		.section{
+			text-align:center;
+		}
+
+
+		/* Backgrounds will cover all the section
+        * --------------------------------------- */
+		.section{
+			background-size: cover;
+		}
+		.slide{
+			background-size: cover;
+		}
+
+		/* Defining each section background and styles
+        * --------------------------------------- */
+		#section0{
+			/*background-image: url(imgs/a_chess_background.jpg);*/
+			padding: 6% 0 0 0;
+		}
+		#section0 h2 {
+			color: #000000;
+		}
+		#section0 p {
+			color: #000000;
+		}
+
+		#section2{
+			background-image: url(imgs/a_chess_background.jpg);
+			padding: 6% 0 0 0;
+		}
+		#section3{
+			background-image: url(imgs/a_chess_background.jpg);
+			padding: 6% 0 0 0;
+		}
+		#section3 h1{
+			color: #ffffff;
+		}
+
+		#section4 {
+			background-image: url(imgs/a_chess_background.jpg);
+			padding: 6% 0 0 0;
+		}
+
+		/* Bottom menu
+        * --------------------------------------- */
+		#infoMenu li a {
+			color: #fff;
+		}
+
+		p{
+			color: #ffffff;
+		}
+
+		#gif {
+			position: center;
+			right: 0;
+			bottom: 0;
+			top:0;
+			right:0;
+			height: 70%;
+			background-size: 80% 80%;
+			background-color: black; /* in case the video doesn't fit the whole page*/
+			background-image: /* our video */;
+			background-position: center center;
+			background-size: contain;
+			object-fit: cover; /*cover video background */
+			z-index:3;
+		}
+
+		#myVideo{
+			position: center;
+			right: 0;
+			bottom: 0;
+			top:0;
+			right:0;
+			height: 70%;
+			background-size: 80% 80%;
+			background-color: black; /* in case the video doesn't fit the whole page*/
+			background-image: /* our video */;
+			background-position: center center;
+			background-size: contain;
+			object-fit: cover; /*cover video background */
+			z-index:3;
+		}
+
+	</style>
+
+	<!--[if IE]>
+	<script type="text/javascript">
+		var console = { log: function() {} };
+	</script>
+	<![endif]-->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="../jquery.fullPage.js"></script>
+	<script type="text/javascript" src="examples.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				sectionsColor: ['#1bbc9b', '#2B565B', '#7BAABE', 'whitesmoke', '#ccddff'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage','5thPage' , 'lastPage'],
+				scrollingSpeed: 1000,
+				menu: '#menu',
+
+				//Custom selectors
+				sectionSelector: '.section',
+				slideSelector: '.slide',
+				afterRender: function(){
+					//playing the video
+					$('video').get(0).play();
+				}
+			});
+		});
+	</script>
+
+</head>
+<body>
+
+<ul id="menu">
+	<li data-menuanchor="firstPage"><a href="#firstPage">Главная</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">О проекте</a></li>
+	<li data-menuanchor="3rdPage"><a href="#3rdPage">Правила</a></li>
+	<li data-menuanchor="4thpage"><a href="#4thpage">Как играть</a></li>
+	<li data-menuanchor="5thPage"><a href="#5thPage">Скачать</a></li>
+
+</ul>
+
+<div id="fullpage">
+	<div class="section" id="section3">
+		<h1>Шведские шахматы</h1>
+		<h2>TeamChess</h2>
+		<p>Первое мобильное Приложение для игры в шведские шахматы online</p>
+	</div>
+	<div class="section" id="section1">
+		<div class="slide">
+			<div class="intro">
+				<img src="imgs/1.png" alt="simple" />
+				<h1>Командные</h1>
+				<p>Играйте с друзьями в одной команде и побеждайте вместе!</p>
+			</div>
+		</div>
+		<div class="slide">
+			<div class="intro">
+				<img src="imgs/2.png" alt="Cool" />
+				<h1>Быстрые</h1>
+				<p>Режим сумасшедшего блица</p>
+			</div>
+		</div>
+		<div class="slide">
+			<div class="intro">
+				<img src="imgs/3.png" alt="Compatible" />
+				<h1>Эмоциональные</h1>
+				<p>Напряжение на протяжении всей партии</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="section " id="section5">
+		<div class="slide">
+			<div class="intro">
+				<img src="imgs/lobby_board.png" alt="simple" />
+				<img src="imgs/lobby_board.png" alt="simple" />
+				<h1>Как это работает?</h1>
+				<p>1 партия, 2 доски, 4 игрока, 2 команды;</p>
+				<p>В каждой команде один участник играет белыми, другой - чёрными фигурами;</p>
+				<p>Игра идёт с контролем времени;</p>
+				<p>Партнёры имеют возможность видеть позиции и время на обеих досках.</p>
+			</div>
+		</div>
+		<div class="slide">
+			<div class="intro">
+				<!--<img src="imgs/lobby_board.png" alt="simple" />-->
+				<!--<img src="imgs/lobby_board.png" alt="simple" />-->
+				<h1>Главный принцип</h1>
+				<p>Сбитую фигуру соперника игрок передает своему партнеру в резерв</p>
+				<p>Фигура из резерва может быть выставлена на доску вместо обычного хода</p>
+				<h1>Условие победы</h1>
+				<p>Проигрыает команда, игроку которой поставили мат, либо игрок которой первым просрочил время</p>
+			</div>
+		</div>
+		<div class="slide">
+			<div class="intro">
+				<h1>Используемые правила</h1>
+				<p>1) Выставленной фигурой можно объявлять и <em>шах</em>, и <em>мат</em>.</p>
+				<p>2) Пешку можно выставлять на любую горизонталь, кроме первой и последней.</p>
+				<p>3) При превращении пешка объявляется желаемой фигурой.</p>
+			</div>
+		</div>
+
+
+	</div>
+
+	<div class="section" id="section2">
+		<div class="slide">
+				<img src="imgs/start_game.gif" alt="simple" id="gif" />
+				<!--<img src="imgs/start_game.gif" alt="simple" width="300" height="500" />-->
+				<!--<img src="imgs/start_game.gif" alt="simple" width="300" height="500" />-->
+				<!--<img src="imgs/start_game.gif" alt="simple" width="300" height="500" />-->
+		</div>
+
+		<div class="slide">
+				<video autoplay loop muted id="myVideo">
+					<source src="imgs/figure_pass.mp4" type="video/mp4">
+					<source src="imgs/flowers.webm" type="video/webm">
+				</video>
+		</div>
+	</div>
+
+	<div class="section " id="section0">
+		<div class="intro">
+			<a class="store" href="https://play.google.com/store/apps/details?id=ru.mail.park.bughouse">
+				<img alt="Android app on Google Play" width="172" height="50" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png">
+			</a>
+			<a class="store" href="https://play.google.com/store/apps/details?id=ru.mail.park.bughouse">
+				<img alt="Download on the Apple App Store" width="172" height="50" src="https://devimages.apple.com.edgekey.net/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg">
+			</a>
+			<h2>Работа на планшетах</h2>
+			<p>
+				Адаптирован под различные размеры экранов, а также для планшетов и мобильных устройств.
+				<br /><br /><br /><br />
+			</p>
+		</div>
+		<img src="imgs/tablets.png" alt="tablets" />
+	</div>
+</div>
+
+</body>
+</html>
